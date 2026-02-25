@@ -1,6 +1,6 @@
 from typing import Optional
 from datetime import datetime
-from backend.models.story import Story
+from models.story import Story
 from pydantic import BaseModel
 
 class StoryJobBase(BaseModel):
@@ -9,10 +9,10 @@ class StoryJobBase(BaseModel):
 
 class StoryJobResponse(BaseModel):
     """Schema for a complete story job response."""
-    job_id: int
+    job_id: str
     status: str
     created_at: datetime
-    story_id: Optional[str] = None
+    story_id: Optional[int] = None
     completed_at: Optional[datetime] = None
     error: Optional[str] = None
 

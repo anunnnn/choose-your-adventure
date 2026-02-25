@@ -11,7 +11,7 @@ class StoryJob(Base):
     session_id = Column(String, nullable=False, index=True)
     theme = Column(String, nullable=False)
     status = Column(String, nullable=False, default="pending")
-    story_id = Column(Integer, ForeignKey("stories.id"), nullable=False)
+    story_id = Column(String, ForeignKey("stories.id"), nullable=False)
     error = Column(String, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())

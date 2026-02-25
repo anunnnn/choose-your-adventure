@@ -25,7 +25,7 @@ def get_session_id(session_id: Optional[str] = Cookie(None)):
 
 
 
-@router.post("create", response_model=StoryJobResponse)
+@router.post("/create", response_model=StoryJobResponse)
 def create_story(
     request: CreateStoryRequest,
     background_tasks: BackgroundTasks,
@@ -33,7 +33,7 @@ def create_story(
     session_id: str = Depends(get_session_id),
     db: Session = Depends(get_db)
 ):
-    response.set_cookie(keys="session_id", value=session_id, httponly=True, secure=True)
+    response.set_cookie(key="session_id", value=session_id, httponly=True, secure=True)
 
     # Create a new story job
     job_id = str(uuid.uuid4())
@@ -42,6 +42,7 @@ def create_story(
         session_id=session_id,
         status="pending",
         theme=request.theme,
+        story_id=1, # placeholder, will be updated once the story is generated
         created_at=datetime.now()
     )
 
