@@ -43,3 +43,11 @@ class CreateStoryResponse(StoryBase):
     class Config:
         from_attributes = True
 
+class CompleteStoryResponse(StoryBase):
+    id: int
+    created_at: datetime
+    root_node: CompleteStoryNodeResponse
+    all_nodes: Dict[int, CompleteStoryNodeResponse]
+
+    class Config:
+        from_attributes = True
