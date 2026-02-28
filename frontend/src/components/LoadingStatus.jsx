@@ -1,0 +1,20 @@
+import React from 'react'
+
+export default function LoadingStatus(theme) {
+  return (
+    <div className="loading-container">
+        <h2>Generate Your {theme} Story </h2>
+
+        <div className="loading-animation">
+            <div className="spinner"></div>
+        </div>
+
+        <p className="loading-info">
+            Generating...
+            <br></br>
+            Please wait while we generate your story...
+        </p>
+      
+    </div>
+  )
+}
