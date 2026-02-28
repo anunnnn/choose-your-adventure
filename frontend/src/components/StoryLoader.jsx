@@ -7,6 +7,7 @@ import React, {
 import axios from 'axios';
 
 import LoadingStatus from './LoadingStatus';
+import StoryGame from './StoryGame';
 
 const API_BASE_URL = '/api';
 
@@ -66,7 +67,7 @@ export default function StoryLoader() {
     if(story){
         return (
             <div className="story-loader">
-
+                <StoryGame story={story} onNewStory={createNewStory} />
             </div>
         );
     }
